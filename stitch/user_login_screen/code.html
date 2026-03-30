@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>My Fridge - Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Work Sans", sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark min-h-screen">
+    <div class="flex min-h-screen w-full">
+        <!-- Visual Sidebar (Hidden on mobile) -->
+        <div class="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+            <div class="absolute inset-0 bg-center bg-cover bg-no-repeat transition-transform duration-700 hover:scale-105"
+                data-alt="Vibrant fresh green vegetables and fruits arranged neatly"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC5wfg8ECy3nXmskUWW0ISwa2lfRKHFGGYcAylag0nc-IdBMwzVaMWFRrO1Br7X5ZrQr-HkkK7gopqLixMyLQj0qYk29qBz3CVda9XE05B7cuPfLzDlgVmNc7USCWx5QcbCvc4EXuNc2CjWhthQfTICBMKSmstXWwBOcPXNtbowzv2R2ciFI_QZqpRf9qjHZlJ1FNTNqDBuG0eogbU6gVpPw-sO-d7NQZtfQfs3UQ1g-Tnj0D_OZ9uOyqvS67dzQRCWf3CFR71rUgQ");'>
+            </div>
+            <div class="absolute inset-0 bg-black/20 backdrop-blur-[2px]"></div>
+            <div class="relative z-10 flex flex-col justify-end p-12 text-white">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="material-symbols-outlined text-primary text-4xl">kitchen</span>
+                    <h1 class="text-3xl font-black tracking-tight">My Fridge</h1>
+                </div>
+                <p class="text-xl font-medium max-w-md">"The secret to healthy eating starts with an organized kitchen."
+                </p>
+                <p class="mt-2 text-white/80 italic">— Chef's Proverb</p>
+            </div>
+        </div>
+        <!-- Login Form Section -->
+        <div
+            class="w-full lg:w-1/2 flex flex-col justify-center items-center px-6 py-12 md:px-12 lg:px-24 bg-background-light dark:bg-background-dark">
+            <div class="w-full max-w-[480px]">
+                <!-- Mobile Logo -->
+                <div class="lg:hidden flex items-center justify-center gap-2 mb-8">
+                    <span class="material-symbols-outlined text-primary text-4xl">kitchen</span>
+                    <h1 class="text-2xl font-black text-[#0d1b0d] dark:text-white">My Fridge</h1>
+                </div>
+                <!-- Page Heading -->
+                <div class="flex flex-col gap-2 mb-8">
+                    <h2 class="text-[#0d1b0d] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+                        Welcome Back</h2>
+                    <p class="text-[#4c9a4c] dark:text-primary/80 text-base font-normal leading-normal">Manage your
+                        inventory and discover your next meal.</p>
+                </div>
+                <!-- Form -->
+                <form class="flex flex-col gap-4">
+                    <!-- Email Field -->
+                    <div class="flex flex-col">
+                        <label class="flex flex-col w-full">
+                            <p class="text-[#0d1b0d] dark:text-white/90 text-sm font-medium leading-normal pb-2">Email
+                                Address</p>
+                            <input
+                                class="form-input flex w-full rounded-lg text-[#0d1b0d] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#cfe7cf] dark:border-white/10 bg-white dark:bg-[#1a2e1a] focus:border-primary h-14 placeholder:text-[#4c9a4c]/50 p-[15px] text-base font-normal leading-normal dark:text-white"
+                                placeholder="you@example.com" type="email" />
+                        </label>
+                    </div>
+                    <!-- Password Field -->
+                    <div class="flex flex-col">
+                        <label class="flex flex-col w-full">
+                            <p class="text-[#0d1b0d] dark:text-white/90 text-sm font-medium leading-normal pb-2">
+                                Password</p>
+                            <div class="flex w-full items-stretch rounded-lg group">
+                                <input
+                                    class="form-input flex w-full min-w-0 flex-1 rounded-lg rounded-r-none border-r-0 text-[#0d1b0d] focus:outline-0 focus:ring-0 border border-[#cfe7cf] dark:border-white/10 bg-white dark:bg-[#1a2e1a] focus:border-primary h-14 placeholder:text-[#4c9a4c]/50 p-[15px] text-base font-normal leading-normal dark:text-white"
+                                    placeholder="Enter your password" type="password" />
+                                <div
+                                    class="text-[#4c9a4c] flex border border-[#cfe7cf] dark:border-white/10 bg-white dark:bg-[#1a2e1a] items-center justify-center pr-[15px] rounded-r-lg border-l-0 cursor-pointer hover:text-primary">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- Remember & Forgot -->
+                    <div class="flex items-center justify-between min-h-10">
+                        <div class="flex items-center gap-2">
+                            <input
+                                class="h-5 w-5 rounded border-[#cfe7cf] dark:border-white/10 border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary focus:ring-offset-0 focus:outline-none"
+                                id="remember" type="checkbox" />
+                            <label
+                                class="text-[#0d1b0d] dark:text-white/70 text-sm font-medium leading-normal cursor-pointer"
+                                for="remember">Remember me</label>
+                        </div>
+                        <a class="text-primary hover:text-primary/80 text-sm font-semibold transition-colors"
+                            href="#">Forgot password?</a>
+                    </div>
+                    <!-- Sign In Button -->
+                    <button
+                        class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:brightness-105 transition-all shadow-lg shadow-primary/20"
+                        type="submit">
+                        <span class="truncate">Sign In</span>
+                    </button>
+                </form>
+                <!-- Divider -->
+                <div class="relative my-8">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-[#cfe7cf] dark:border-white/10"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="bg-background-light dark:bg-background-dark px-4 text-[#4c9a4c] font-medium">Or
+                            continue with</span>
+                    </div>
+                </div>
+                <!-- Social Logins -->
+                <div class="grid grid-cols-2 gap-4">
+                    <button
+                        class="flex items-center justify-center gap-3 rounded-xl border border-[#cfe7cf] dark:border-white/10 bg-white dark:bg-[#1a2e1a] h-12 px-4 text-[#0d1b0d] dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                        <svg class="w-5 h-5" viewbox="0 0 24 24">
+                            <path
+                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                                fill="#4285F4"></path>
+                            <path
+                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                                fill="#34A853"></path>
+                            <path
+                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                                fill="#FBBC05"></path>
+                            <path
+                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                                fill="#EA4335"></path>
+                        </svg>
+                        <span>Google</span>
+                    </button>
+                    <button
+                        class="flex items-center justify-center gap-3 rounded-xl border border-[#cfe7cf] dark:border-white/10 bg-white dark:bg-[#1a2e1a] h-12 px-4 text-[#0d1b0d] dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+                            <path
+                                d="M17.05 20.28c-.96.95-2.03 1.36-3.23 1.36-1.16 0-2.12-.4-3.11-1.36-.98-.95-2.12-1.36-3.23-1.36-1.16 0-2.23.41-3.21 1.36-.2.19-.39.41-.58.62C2.04 18.33 1 15.68 1 12.82c0-3.1 1.93-5.25 4.67-5.25 1.16 0 2.21.36 2.91.95.7.59 1.48.95 2.42.95s1.72-.36 2.42-.95c.7-.59 1.75-.95 2.91-.95 2.74 0 4.67 2.15 4.67 5.25 0 2.86-1.04 5.51-2.69 8.08-.19-.21-.38-.43-.58-.62zM11 5.34C11 3.5 12.33 2 14.04 2c1.72 0 3.04 1.5 3.04 3.34 0 1.84-1.33 3.33-3.04 3.33-1.71 0-3.04-1.49-3.04-3.33z">
+                            </path>
+                        </svg>
+                        <span>Apple</span>
+                    </button>
+                </div>
+                <!-- Footer -->
+                <p class="mt-10 text-center text-[#4c9a4c] dark:text-white/50 text-sm">
+                    Don't have an account?
+                    <a class="text-primary font-bold hover:underline" href="../user_registration_screen/code.html">Sign
+                        up for free</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./controller.js"></script>
+</body>
+
+</html>

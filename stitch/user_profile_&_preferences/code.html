@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>User Profile &amp; Preferences - My Fridge</title>
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Work Sans", sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        :root {
+            --checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(13,27,13)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e');
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#0d1b0d] dark:text-[#f8fcf8]">
+    <div class="layout-container flex flex-col h-full min-h-screen">
+        <!-- TopNavBar -->
+        <header
+            class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e7f3e7] dark:border-[#1c351c] px-6 lg:px-40 py-3 bg-white dark:bg-[#152a15] sticky top-0 z-50">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-4 text-[#0d1b0d] dark:text-white">
+                    <div class="size-6 text-primary">
+                        <span class="material-symbols-outlined text-3xl">kitchen</span>
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] font-display">My Fridge</h2>
+                </div>
+                <label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+                    <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                        <div class="text-[#4c9a4c] flex border-none bg-[#e7f3e7] dark:bg-[#1c351c] items-center justify-center pl-4 rounded-l-lg"
+                            data-icon="search">
+                            <span class="material-symbols-outlined text-[20px]">search</span>
+                        </div>
+                        <input
+                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d1b0d] dark:text-white focus:outline-0 focus:ring-0 border-none bg-[#e7f3e7] dark:bg-[#1c351c] h-full placeholder:text-[#4c9a4c] px-4 rounded-l-none pl-2 text-base font-normal"
+                            placeholder="Search ingredients..." value="" />
+                    </div>
+                </label>
+            </div>
+            <div class="flex flex-1 justify-end gap-6 items-center">
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="../fridge_inventory_manager/code.html">Inventory</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="../recipe_suggestions/code.html">Recipes</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="../shopping_list/code.html">Shopping List</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="../inventory_dashboard/code.html">Dashboard</a>
+                </nav>
+                <div class="flex gap-2">
+                    <button
+                        class="flex items-center justify-center rounded-lg h-10 w-10 bg-[#e7f3e7] dark:bg-[#1c351c] text-[#0d1b0d] dark:text-white hover:bg-primary/20">
+                        <span class="material-symbols-outlined text-[20px]">notifications</span>
+                    </button>
+                </div>
+                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary"
+                    data-alt="User profile avatar smiling"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnU3dKMectg3Lh4hoo2T6Z20crY04FaCGoAvGOs0YtOpgFBb4fa5AxrEAKFTnqqtSb_JKcwQnPN3MFbFCaegfYuD1CgeFbUd4-htnTCW4rFm-8izYzgwemHp87vonCckKWN2HxWBG5OL1DkmLxHAccdIXdnCpYZ7-ce3fYoP1CTJQdn2bFZzuiopEBjgi-C2HUqehCWrbrl5TT3CLGJRa0nnfTHdH1mFatZhXpablvQkL00IQD0N79o_g1OuoZ0syd57xcVA60L1s");'>
+                </div>
+            </div>
+        </header>
+        <main class="flex-1 flex justify-center py-8">
+            <div class="max-w-[1200px] w-full px-6 flex flex-col lg:flex-row gap-8">
+                <!-- SideNavBar -->
+                <aside class="w-full lg:w-64 flex flex-col gap-6">
+                    <div
+                        class="bg-white dark:bg-[#152a15] p-6 rounded-xl border border-[#e7f3e7] dark:border-[#1c351c] shadow-sm">
+                        <div class="flex gap-3 mb-8">
+                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12 border border-primary/30"
+                                data-alt="John Doe profile picture"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAGcxKKTwks-ZBEqlk5NmL3pmMHik4b_JgcTPQ0bZljsciCzO_UDjMKGJmxqRwcCCqJadS0RAX9GP68tD1s1c-10wOd-yrlAgi042vJLEC_Mc9ubLagAeI8RoyeZPOYeQC0M-daezhA4qqwtFKL1IoqR-OwukPRoTOkT-NvNL3gQwOqRaQDLzeOimJ-wdAeDNuBE9ECm-P2v1HBHTOr6YWkVoZHqjZ5DBX_C0D0Rcnwytzu3YfE2Gvwfh9WwZ6S8eCD9mSNc6eaO0Q");'>
+                            </div>
+                            <div class="flex flex-col overflow-hidden">
+                                <h1 class="text-[#0d1b0d] dark:text-white text-base font-bold leading-tight truncate">
+                                    John Doe</h1>
+                                <p class="text-[#4c9a4c] text-xs font-normal truncate">johndoe@example.com</p>
+                            </div>
+                        </div>
+                        <nav class="flex flex-col gap-2">
+                            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-background-light dark:hover:bg-background-dark group transition-colors"
+                                href="#">
+                                <span
+                                    class="material-symbols-outlined text-[#0d1b0d] dark:text-white group-hover:text-primary transition-colors">manage_accounts</span>
+                                <p class="text-[#0d1b0d] dark:text-white text-sm font-medium">Account Settings</p>
+                            </a>
+                            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary border border-primary/20 shadow-sm"
+                                href="#">
+                                <span class="material-symbols-outlined">restaurant</span>
+                                <p class="text-sm font-bold">Dietary Preferences</p>
+                            </a>
+                            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-background-light dark:hover:bg-background-dark group transition-colors"
+                                href="#">
+                                <span
+                                    class="material-symbols-outlined text-[#0d1b0d] dark:text-white group-hover:text-primary transition-colors">notifications_active</span>
+                                <p class="text-[#0d1b0d] dark:text-white text-sm font-medium">Notifications</p>
+                            </a>
+                            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-background-light dark:hover:bg-background-dark group transition-colors"
+                                href="#">
+                                <span
+                                    class="material-symbols-outlined text-[#0d1b0d] dark:text-white group-hover:text-primary transition-colors">history</span>
+                                <p class="text-[#0d1b0d] dark:text-white text-sm font-medium">Recipe History</p>
+                            </a>
+                            <div class="pt-4 mt-4 border-t border-[#e7f3e7] dark:border-[#1c351c]">
+                                <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors"
+                                    href="../user_login_screen/code.html">
+                                    <span class="material-symbols-outlined">logout</span>
+                                    <p class="text-sm font-medium">Sign Out</p>
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                </aside>
+                <!-- Content Area -->
+                <div class="flex-1 flex flex-col gap-6">
+                    <!-- PageHeading -->
+                    <div
+                        class="flex flex-col gap-3 p-4 bg-white dark:bg-[#152a15] rounded-xl border border-[#e7f3e7] dark:border-[#1c351c] shadow-sm">
+                        <div class="flex flex-col gap-1">
+                            <p
+                                class="text-[#0d1b0d] dark:text-white text-3xl font-black leading-tight tracking-[-0.033em] font-display">
+                                Dietary Preferences &amp; Allergies</p>
+                            <p class="text-[#4c9a4c] text-base font-normal max-w-2xl">Manage your food restrictions and
+                                lifestyle goals to get personalized recipe recommendations based on what's in your
+                                fridge.</p>
+                        </div>
+                    </div>
+                    <!-- Main Settings Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Common Allergies Card -->
+                        <div
+                            class="bg-white dark:bg-[#152a15] rounded-xl border border-[#e7f3e7] dark:border-[#1c351c] shadow-sm overflow-hidden flex flex-col">
+                            <!-- SectionHeader -->
+                            <div class="p-4 border-b border-[#e7f3e7] dark:border-[#1c351c] flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">warning</span>
+                                <h2 class="text-[#0d1b0d] dark:text-white text-[18px] font-bold leading-tight">Common
+                                    Allergies</h2>
+                            </div>
+                            <!-- Checklists -->
+                            <div class="p-6 space-y-1">
+                                <label
+                                    class="flex items-center gap-x-3 py-2.5 px-3 rounded-lg hover:bg-background-light dark:hover:bg-background-dark cursor-pointer transition-colors">
+                                    <input checked=""
+                                        class="h-5 w-5 rounded border-[#cfe7cf] border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary focus:ring-offset-0 focus:outline-none transition-all cursor-pointer"
+                                        type="checkbox" />
+                                    <p class="text-[#0d1b0d] dark:text-white text-base font-medium">Peanuts</p>
+                                </label>
+                                <label
+                                    class="flex items-center gap-x-3 py-2.5 px-3 rounded-lg hover:bg-background-light dark:hover:bg-background-dark cursor-pointer transition-colors">
+                                    <input
+                                        class="h-5 w-5 rounded border-[#cfe7cf] border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary focus:ring-offset-0 focus:outline-none transition-all cursor-pointer"
+                                        type="checkbox" />
+                                    <p class="text-[#0d1b0d] dark:text-white text-base font-medium">Gluten-free</p>
+                                </label>
+                                <label
+                                    class="flex items-center gap-x-3 py-2.5 px-3 rounded-lg hover:bg-background-light dark:hover:bg-background-dark cursor-pointer transition-colors">
+                                    <input checked=""
+                                        class="h-5 w-5 rounded border-[#cfe7cf] border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary focus:ring-offset-0 focus:outline-none transition-all cursor-pointer"
+                                        type="checkbox" />
+                                    <p class="text-[#0d1b0d] dark:text-white text-base font-medium">Dairy-free</p>
+                                </label>
+                                <label
+                                    class="flex items-center gap-x-3 py-2.5 px-3 rounded-lg hover:bg-background-light dark:hover:bg-background-dark cursor-pointer transition-colors">
+                                    <input
+                                        class="h-5 w-5 rounded border-[#cfe7cf] border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary focus:ring-offset-0 focus:outline-none transition-all cursor-pointer"
+                                        type="checkbox" />
+                                    <p class="text-[#0d1b0d] dark:text-white text-base font-medium">Shellfish</p>
+                                </label>
+                                <label
+                                    class="flex items-center gap-x-3 py-2.5 px-3 rounded-lg hover:bg-background-light dark:hover:bg-background-dark cursor-pointer transition-colors">
+                                    <input
+                                        class="h-5 w-5 rounded border-[#cfe7cf] border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary focus:ring-offset-0 focus:outline-none transition-all cursor-pointer"
+                                        type="checkbox" />
+                                    <p class="text-[#0d1b0d] dark:text-white text-base font-medium">Tree Nuts</p>
+                                </label>
+                                <label
+                                    class="flex items-center gap-x-3 py-2.5 px-3 rounded-lg hover:bg-background-light dark:hover:bg-background-dark cursor-pointer transition-colors">
+                                    <input
+                                        class="h-5 w-5 rounded border-[#cfe7cf] border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-primary focus:ring-offset-0 focus:outline-none transition-all cursor-pointer"
+                                        type="checkbox" />
+                                    <p class="text-[#0d1b0d] dark:text-white text-base font-medium">Soy</p>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Lifestyle & Diet Card -->
+                        <div
+                            class="bg-white dark:bg-[#152a15] rounded-xl border border-[#e7f3e7] dark:border-[#1c351c] shadow-sm overflow-hidden flex flex-col">
+                            <div class="p-4 border-b border-[#e7f3e7] dark:border-[#1c351c] flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">eco</span>
+                                <h2 class="text-[#0d1b0d] dark:text-white text-[18px] font-bold leading-tight">Lifestyle
+                                    Goals</h2>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-sm text-[#4c9a4c] mb-6">Select your dietary approach to filter recipe
+                                    results.</p>
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div
+                                        class="flex items-center justify-between p-3 rounded-xl border border-[#e7f3e7] dark:border-[#1c351c] hover:border-primary/50 cursor-pointer transition-all bg-background-light/50 dark:bg-background-dark/50">
+                                        <div class="flex items-center gap-3">
+                                            <div
+                                                class="size-8 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                                                <span class="material-symbols-outlined text-sm">spa</span>
+                                            </div>
+                                            <span class="font-medium">Vegan</span>
+                                        </div>
+                                        <input
+                                            class="text-primary focus:ring-primary cursor-pointer h-5 w-5 border-[#cfe7cf] border-2 bg-transparent"
+                                            name="diet" type="radio" />
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between p-3 rounded-xl border-2 border-primary cursor-pointer transition-all bg-primary/5">
+                                        <div class="flex items-center gap-3">
+                                            <div
+                                                class="size-8 rounded-full bg-primary text-white flex items-center justify-center">
+                                                <span class="material-symbols-outlined text-sm">egg_alt</span>
+                                            </div>
+                                            <span class="font-bold">Vegetarian</span>
+                                        </div>
+                                        <input checked=""
+                                            class="text-primary focus:ring-primary cursor-pointer h-5 w-5 border-primary border-2 bg-transparent"
+                                            name="diet" type="radio" />
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between p-3 rounded-xl border border-[#e7f3e7] dark:border-[#1c351c] hover:border-primary/50 cursor-pointer transition-all bg-background-light/50 dark:bg-background-dark/50">
+                                        <div class="flex items-center gap-3">
+                                            <div
+                                                class="size-8 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                                                <span class="material-symbols-outlined text-sm">bolt</span>
+                                            </div>
+                                            <span class="font-medium">Keto</span>
+                                        </div>
+                                        <input
+                                            class="text-primary focus:ring-primary cursor-pointer h-5 w-5 border-[#cfe7cf] border-2 bg-transparent"
+                                            name="diet" type="radio" />
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between p-3 rounded-xl border border-[#e7f3e7] dark:border-[#1c351c] hover:border-primary/50 cursor-pointer transition-all bg-background-light/50 dark:bg-background-dark/50">
+                                        <div class="flex items-center gap-3">
+                                            <div
+                                                class="size-8 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                                                <span class="material-symbols-outlined text-sm">set_meal</span>
+                                            </div>
+                                            <span class="font-medium">Pescatarian</span>
+                                        </div>
+                                        <input
+                                            class="text-primary focus:ring-primary cursor-pointer h-5 w-5 border-[#cfe7cf] border-2 bg-transparent"
+                                            name="diet" type="radio" />
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between p-3 rounded-xl border border-[#e7f3e7] dark:border-[#1c351c] hover:border-primary/50 cursor-pointer transition-all bg-background-light/50 dark:bg-background-dark/50">
+                                        <div class="flex items-center gap-3">
+                                            <div
+                                                class="size-8 rounded-full bg-primary/20 text-primary flex items-center justify-center">
+                                                <span class="material-symbols-outlined text-sm">health_metrics</span>
+                                            </div>
+                                            <span class="font-medium">Paleo</span>
+                                        </div>
+                                        <input
+                                            class="text-primary focus:ring-primary cursor-pointer h-5 w-5 border-[#cfe7cf] border-2 bg-transparent"
+                                            name="diet" type="radio" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional Settings & CTA -->
+                    <div
+                        class="bg-white dark:bg-[#152a15] rounded-xl border border-[#e7f3e7] dark:border-[#1c351c] shadow-sm p-6">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                            <div class="flex-1">
+                                <h3 class="font-bold text-lg mb-1">Smart Filter</h3>
+                                <p class="text-sm text-[#4c9a4c]">Automatically filter recipe discovery based on these
+                                    settings. You can always override this on the recipe search page.</p>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input checked="" class="sr-only peer" type="checkbox" value="" />
+                                <div
+                                    class="w-11 h-6 bg-gray-200 dark:bg-[#1c351c] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                                </div>
+                            </label>
+                        </div>
+                        <div
+                            class="mt-8 flex items-center justify-end gap-4 border-t border-[#e7f3e7] dark:border-[#1c351c] pt-8">
+                            <button id="reset-prefs-btn"
+                                class="px-6 py-2.5 rounded-lg border border-[#e7f3e7] dark:border-[#1c351c] text-sm font-bold hover:bg-background-light dark:hover:bg-background-dark transition-colors">
+                                Reset to Default
+                            </button>
+                            <button id="save-prefs-btn"
+                                class="px-8 py-2.5 rounded-lg bg-primary text-[#0d1b0d] text-sm font-bold hover:bg-primary/80 transition-all shadow-[0_4px_14px_0_rgba(19,236,19,0.39)] active:scale-95">
+                                Save Preferences
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer
+            class="mt-auto py-10 px-6 lg:px-40 border-t border-[#e7f3e7] dark:border-[#1c351c] bg-white dark:bg-[#152a15]">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-2xl">kitchen</span>
+                    <span class="font-bold text-lg">My Fridge</span>
+                </div>
+                <div class="flex gap-8 text-sm text-[#4c9a4c]">
+                    <a class="hover:text-primary" href="#">Help Center</a>
+                    <a class="hover:text-primary" href="#">Privacy Policy</a>
+                    <a class="hover:text-primary" href="#">Terms of Service</a>
+                </div>
+                <p class="text-xs text-[#4c9a4c]">© 2024 My Fridge App. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="./controller.js"></script>
+</body>
+
+</html>

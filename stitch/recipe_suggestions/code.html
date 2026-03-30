@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Recipe Suggestions - My Fridge</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Work Sans", sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#0d1b0d] dark:text-white min-h-screen">
+    <div class="layout-container flex h-full grow flex-col">
+        <!-- TopNavBar -->
+        <header
+            class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e7f3e7] dark:border-[#1a3a1a] bg-white dark:bg-[#102210] px-4 md:px-10 py-3 sticky top-0 z-50">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-4 text-[#0d1b0d] dark:text-primary">
+                    <div class="size-8">
+                        <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] dark:text-white">My Fridge</h2>
+                </div>
+                <nav class="hidden md:flex items-center gap-9">
+                    <a class="text-[#0d1b0d] dark:text-[#a3c2a3] text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="../fridge_inventory_manager/code.html">Inventory</a>
+                    <a class="text-sm font-bold leading-normal text-primary" href="#">Recipes</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="../shopping_list/code.html">Shopping List</a>
+                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="../user_profile_&_preferences/code.html">Settings</a>
+                    <a class="text-[#0d1b0d] dark:text-[#a3c2a3] text-sm font-medium leading-normal hover:text-primary transition-colors"
+                        href="../inventory_dashboard/code.html">Dashboard</a>
+                </nav>
+            </div>
+            <div class="flex flex-1 justify-end gap-4 items-center">
+                <label class="hidden lg:flex flex-col min-w-40 h-10 max-w-64">
+                    <div class="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden">
+                        <div
+                            class="text-[#4c9a4c] flex border-none bg-[#e7f3e7] dark:bg-[#1a3a1a] items-center justify-center px-3">
+                            <span class="material-symbols-outlined text-[20px]">search</span>
+                        </div>
+                        <input
+                            class="form-input flex w-full min-w-0 flex-1 border-none bg-[#e7f3e7] dark:bg-[#1a3a1a] focus:ring-0 text-sm placeholder:text-[#4c9a4c]"
+                            placeholder="Search recipes..." />
+                    </div>
+                </label>
+                <div class="flex gap-2">
+                    <button
+                        class="flex items-center justify-center rounded-lg size-10 bg-[#e7f3e7] dark:bg-[#1a3a1a] text-[#0d1b0d] dark:text-white">
+                        <span class="material-symbols-outlined text-[20px]">notifications</span>
+                    </button>
+                    <a href="../user_profile_&_preferences/code.html"
+                        class="flex items-center justify-center rounded-lg size-10 bg-[#e7f3e7] dark:bg-[#1a3a1a] text-[#0d1b0d] dark:text-white">
+                        <span class="material-symbols-outlined text-[20px]">settings</span>
+                    </a>
+                </div>
+                <a href="../user_profile_&_preferences/code.html"
+                    class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary"
+                    data-alt="User profile picture"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDpOy7qW-q5a6ejahqHgXI8LOjIhvKS84ksNT_f3SxSke8UwX9_XNjSSwwaFm79Qe7o3X-l9xUnoNFEZKwyObHB6LJzmnmlGWoUnPDkW7NmRWnzj7pQwpVGYhbiFmta3EmwOoh42LzxAHvC_QoAdCav-RgszTz9vuga7tLGTIIcUbg6ba39VBc8hwD4fR3mUntibmZiJ9mQ5Sa4aFxZX6MzaYFpD4AJ16EA0wdGyG62lDku1wXZBHBQLp_ijbDU2brD-trQQH3vJz0");'>
+                </a>
+            </div>
+        </header>
+        <main class="flex-1 max-w-[1200px] mx-auto w-full px-4 md:px-10 py-8">
+            <!-- PageHeading -->
+            <div class="flex flex-wrap justify-between items-end gap-6 mb-8">
+                <div class="flex flex-col gap-2">
+                    <h1 class="text-[#0d1b0d] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+                        Recipe Suggestions</h1>
+                    <p class="text-[#4c9a4c] dark:text-[#7ab67a] text-lg">Delicious meals you can cook with what's in
+                        your fridge right now.</p>
+                </div>
+                <button id="refresh-inventory-btn"
+                    class="flex items-center gap-2 cursor-pointer rounded-lg h-12 px-6 bg-primary text-background-dark font-bold hover:brightness-110 transition-all shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined">refresh</span>
+                    <span>Refresh Inventory</span>
+                </button>
+            </div>
+            <!-- Tabs -->
+            <div class="mb-8 overflow-x-auto">
+                <div class="flex border-b border-[#cfe7cf] dark:border-[#1a3a1a] gap-8 min-w-max">
+                    <a class="flex items-center justify-center border-b-[3px] border-primary text-[#0d1b0d] dark:text-white pb-3 pt-4 px-2"
+                        href="#">
+                        <p class="text-sm font-bold">All Suggestions</p>
+                    </a>
+                    <a class="flex items-center justify-center border-b-[3px] border-transparent text-[#4c9a4c] dark:text-[#a3c2a3] pb-3 pt-4 px-2 hover:text-[#0d1b0d] dark:hover:text-white"
+                        href="#">
+                        <p class="text-sm font-bold">Vegan</p>
+                    </a>
+                    <a class="flex items-center justify-center border-b-[3px] border-transparent text-[#4c9a4c] dark:text-[#a3c2a3] pb-3 pt-4 px-2 hover:text-[#0d1b0d] dark:hover:text-white"
+                        href="#">
+                        <p class="text-sm font-bold">High Protein</p>
+                    </a>
+                    <a class="flex items-center justify-center border-b-[3px] border-transparent text-[#4c9a4c] dark:text-[#a3c2a3] pb-3 pt-4 px-2 hover:text-[#0d1b0d] dark:hover:text-white"
+                        href="#">
+                        <p class="text-sm font-bold">Gluten-Free</p>
+                    </a>
+                    <a class="flex items-center justify-center border-b-[3px] border-transparent text-[#4c9a4c] dark:text-[#a3c2a3] pb-3 pt-4 px-2 hover:text-[#0d1b0d] dark:hover:text-white"
+                        href="#">
+                        <p class="text-sm font-bold">Quick &amp; Easy</p>
+                    </a>
+                </div>
+            </div>
+            <!-- Section 1: Recipes You Can Make Now -->
+            <section class="mb-12" id="section-ready">
+                <div class="flex items-center justify-between px-2 mb-4">
+                    <h2 class="text-[#0d1b0d] dark:text-white text-2xl font-bold">Recipes You Can Make Now</h2>
+                    <span
+                        class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Ready
+                        to Cook</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Recipe Card 1 -->
+                    <div
+                        class="group bg-white dark:bg-[#1a3a1a] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#e7f3e7] dark:border-[#2a4a2a]">
+                        <div class="relative h-48 w-full bg-center bg-cover"
+                            data-alt="Healthy zucchini and pesto pasta dish"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBiWOTz2GY8Lfx6RAnir5O1aTDdYOdbTUmCjhlH9Z0FsR8S9M340rHHeXg5mGl2to9qGaJ5paVQyUdQS2SCYuK-KrFMRZ4MFRydOmYILYm09Ke0C5QFQ0uWXDtWUMpfeO2gIsEIxZako6tTJchD20cmjespftPhm1Wr_BoqND2Pg0gdgST7dX8LjLWruxdgZqurV9PTFliR2I3bvRuj6WmdEaDeJGensfq7Fyr4a5bXQgMMGoMpU1gUBj29L6ju_GFVuT-vlYXJ1R8");'>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="flex items-center gap-1 text-xs font-bold uppercase"><span
+                                        class="material-symbols-outlined text-xs">timer</span> 15 mins</span> <button
+                                    class="w-full py-3 bg-primary text-background-dark font-bold rounded-lg mt-2 group-hover:bg-primary/90 transition-colors">Start
+                                    Cooking</button>
+                            </div>
+                        </div>
+                        <!-- Recipe Card 2 -->
+                        <div
+                            class="group bg-white dark:bg-[#1a3a1a] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#e7f3e7] dark:border-[#2a4a2a]">
+                            <div class="relative h-48 w-full bg-center bg-cover"
+                                data-alt="Fresh caprese salad with mozzarella and basil"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlEtTeyvNuJ1IOQ5RAbc9QXW6HtJjVNSyhYGIw6wYVTAA7zWObJMqmqD3m7zXukwcJ2-DnaQ7oJl61GFYzlYbBmYVTz9McbT7RCA6Oj8n4Of7n5mBG9skiIh85OM1N9hDHj6xiQ6QQNHggnsX644RfXDcWMnQV9k0qfgwtedM8CkvJB5ddGKZfuzlMKE2cRQk37gq21BUHtC4Z60m9hEW-ezArrZZcLWvzNlTSW6rxVRui8aMZ42h4XAnm1dWB3Eq538MS5yAIMng");'>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 text-white">
+                                    <span class="flex items-center gap-1 text-xs font-bold uppercase"><span
+                                            class="material-symbols-outlined text-xs">timer</span> 10 mins</span>
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col gap-3">
+                                <h3 class="text-[#0d1b0d] dark:text-white text-lg font-bold">Classic Caprese Salad</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="flex items-center gap-1 px-2 py-1 bg-[#e7f3e7] dark:bg-primary/10 rounded text-xs text-[#4c9a4c] font-medium">
+                                        <span class="material-symbols-outlined text-sm">check_circle</span> Mozzarella
+                                    </span>
+                                    <span
+                                        class="flex items-center gap-1 px-2 py-1 bg-[#e7f3e7] dark:bg-primary/10 rounded text-xs text-[#4c9a4c] font-medium">
+                                        <span class="material-symbols-outlined text-sm">check_circle</span> Tomato
+                                    </span>
+                                    <span
+                                        class="flex items-center gap-1 px-2 py-1 bg-[#e7f3e7] dark:bg-primary/10 rounded text-xs text-[#4c9a4c] font-medium">
+                                        <span class="material-symbols-outlined text-sm">check_circle</span> Basil
+                                    </span>
+                                </div>
+                                <button
+                                    class="w-full py-3 bg-primary text-background-dark font-bold rounded-lg mt-2 group-hover:bg-primary/90 transition-colors">Start
+                                    Cooking</button>
+                            </div>
+                        </div>
+                        <!-- Recipe Card 3 -->
+                        <div
+                            class="group bg-white dark:bg-[#1a3a1a] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#e7f3e7] dark:border-[#2a4a2a]">
+                            <div class="relative h-48 w-full bg-center bg-cover"
+                                data-alt="Colorful vegetable stir fry in a wok"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAmkAwgg340cz2n96H7BloKWK8v1RvazrnmoALHJuBoi-zTMliJAr2gYJ3lcxmaVVAACMyx5JLk_uvz1to1v2iQGxDmepsC5UtW9PwFHUgd_CLJ-uvpW5wl8o0vxkY4vLDcH_nccQQsrjxt6-tuIFEREsdT_IlP82TFOFGmCoOMcJS_ypM9gjRfA-u-ITe_3XdPhYux6PX8165t3J9J_kEbHqe7o78Wz4Kf1pAotPakcM_e90GdfG7ESs95u9fAh1o3OQ5owvFjR8");'>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 text-white">
+                                    <span class="flex items-center gap-1 text-xs font-bold uppercase"><span
+                                            class="material-symbols-outlined text-xs">timer</span> 20 mins</span>
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col gap-3">
+                                <h3 class="text-[#0d1b0d] dark:text-white text-lg font-bold">Quick Vegetable Stir Fry
+                                </h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="flex items-center gap-1 px-2 py-1 bg-[#e7f3e7] dark:bg-primary/10 rounded text-xs text-[#4c9a4c] font-medium">
+                                        <span class="material-symbols-outlined text-sm">check_circle</span> Broccoli
+                                    </span>
+                                    <span
+                                        class="flex items-center gap-1 px-2 py-1 bg-[#e7f3e7] dark:bg-primary/10 rounded text-xs text-[#4c9a4c] font-medium">
+                                        <span class="material-symbols-outlined text-sm">check_circle</span> Carrots
+                                    </span>
+                                    <span
+                                        class="flex items-center gap-1 px-2 py-1 bg-[#e7f3e7] dark:bg-primary/10 rounded text-xs text-[#4c9a4c] font-medium">
+                                        <span class="material-symbols-outlined text-sm">check_circle</span> Soy Sauce
+                                    </span>
+                                </div>
+                                <button
+                                    class="w-full py-3 bg-primary text-background-dark font-bold rounded-lg mt-2 group-hover:bg-primary/90 transition-colors">Start
+                                    Cooking</button>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <!-- Section 2: Missing 1-2 Ingredients -->
+            <section class="mb-12" id="section-missing">
+                <div class="flex items-center justify-between px-2 mb-4">
+                    <h2 class="text-[#0d1b0d] dark:text-white text-2xl font-bold">Missing 1-2 Ingredients</h2>
+                    <span
+                        class="bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Almost
+                        There</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Recipe Card 4 -->
+                    <div
+                        class="group bg-white dark:bg-[#1a3a1a] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#e7f3e7] dark:border-[#2a4a2a]">
+                        <div class="relative h-48 w-full bg-center bg-cover grayscale-[0.3]"
+                            data-alt="Avocado toast with poached egg"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5h6NOzLtPbJe2fqPLwnPHA5MmtYe54JJGlWltJ6DyrCBevszTl3hFEc9hQkQxu6T7P_lSw5f2mVUMiTZmDb13dnmPbp31_DEcXswC9pJZmerjg5ZHNXEUKE83zETVzM3RDiQts3ix9h7GGJcESxXzHCF3vuduYEsBpbUVf_SpGy_uhmsKO7D2kHg7glUU01R83LH8zHV0cyx0GqGe57Smcq8Tex3zKY-q30zRai6wHdQ0T6fsX0MPVTRlHIf77z6mN3D-LUD3rDc");'>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div
+                                class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-[10px] font-bold">
+                                1 ITEM MISSING</div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="flex items-center gap-1 text-xs font-bold uppercase"><span
+                                        class="material-symbols-outlined text-xs">timer</span> 10 mins</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col gap-3">
+                            <h3 class="text-[#0d1b0d] dark:text-white text-lg font-bold">Avocado Toast with Egg</h3>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="flex items-center gap-1 text-sm text-[#4c9a4c] dark:text-[#7ab67a]">
+                                        <span class="material-symbols-outlined text-base">check_circle</span> Bread,
+                                        Avocado
+                                    </span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between p-2 bg-orange-50 dark:bg-orange-900/10 rounded-lg border border-orange-100 dark:border-orange-900/20">
+                                    <span
+                                        class="flex items-center gap-2 text-sm text-orange-600 dark:text-orange-400 font-semibold">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Eggs
+                                    </span>
+                                    <button
+                                        class="text-[10px] bg-orange-600 text-white px-2 py-1 rounded font-bold uppercase">Add
+                                        to List</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 5 -->
+                    <div
+                        class="group bg-white dark:bg-[#1a3a1a] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#e7f3e7] dark:border-[#2a4a2a]">
+                        <div class="relative h-48 w-full bg-center bg-cover grayscale-[0.3]"
+                            data-alt="Bowl of spicy chicken ramen"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOvDQVWp_YPxev6PHLB5RLNmg6q7ojSAHTH9Fe9MDOc7iBWjG7Fd8nlRWyRdcWDrFgAgKtmeLJTK8JInIXDtNoLg54y_l8anl9BLDzRS_7p4Pr0KIkgwX_dy8iaHrJdaZnZkPl2tVrFdZEI9vdHN-nMyhza_zyzSFmA9mvtSahrMr3dsCmeV2jh5T1WF7XrzLTcf2EURSG8KpXrSkPnHebjJXwAKEUMBndcdHERN_EQSmjzmmavDmSOwZyokx6MYvpWqH6G3tYoCU");'>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div
+                                class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-[10px] font-bold">
+                                2 ITEMS MISSING</div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="flex items-center gap-1 text-xs font-bold uppercase"><span
+                                        class="material-symbols-outlined text-xs">timer</span> 30 mins</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col gap-3">
+                            <h3 class="text-[#0d1b0d] dark:text-white text-lg font-bold">Spicy Chicken Ramen</h3>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="flex items-center gap-1 text-sm text-[#4c9a4c] dark:text-[#7ab67a]">
+                                        <span class="material-symbols-outlined text-base">check_circle</span> Noodles,
+                                        Broth
+                                    </span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between p-2 bg-orange-50 dark:bg-orange-900/10 rounded-lg border border-orange-100 dark:border-orange-900/20">
+                                    <span
+                                        class="flex items-center gap-2 text-sm text-orange-600 dark:text-orange-400 font-semibold">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Chicken,
+                                        Pak Choi
+                                    </span>
+                                    <button
+                                        class="text-[10px] bg-orange-600 text-white px-2 py-1 rounded font-bold uppercase">Add
+                                        Both</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recipe Card 6 -->
+                    <div
+                        class="group bg-white dark:bg-[#1a3a1a] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-[#e7f3e7] dark:border-[#2a4a2a]">
+                        <div class="relative h-48 w-full bg-center bg-cover grayscale-[0.3]"
+                            data-alt="Creamy tomato soup with herbs"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuARgUIhACfFdC6qcmXA7OmpMDyZbB3ujMTLvsolBnMXtvijjyH-53Kg0AM81xG1CrDCmgyy501QrGGpUXschXx5YkbdYSUBHhcq4darQpYszV9aIA9YhBt96eRpeeW1V_Sc80Kve0WNdClHShd03va3wS4LJ0HcGQOgxaNT4wdrQTcOS6C3RIQ8sP46Vp-uF4rMAx91b7wM6WjhVyqZdXTrCSzORu1PzE5vp6xvMRUD2jUNOq3oWUW0U_KMz-xxWZW1boVjx8Qy3YU");'>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div
+                                class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-[10px] font-bold">
+                                1 ITEM MISSING</div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="flex items-center gap-1 text-xs font-bold uppercase"><span
+                                        class="material-symbols-outlined text-xs">timer</span> 25 mins</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col gap-3">
+                            <h3 class="text-[#0d1b0d] dark:text-white text-lg font-bold">Creamy Tomato Soup</h3>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="flex items-center gap-1 text-sm text-[#4c9a4c] dark:text-[#7ab67a]">
+                                        <span class="material-symbols-outlined text-base">check_circle</span> Tomatoes,
+                                        Onion, Garlic
+                                    </span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between p-2 bg-orange-50 dark:bg-orange-900/10 rounded-lg border border-orange-100 dark:border-orange-900/20">
+                                    <span
+                                        class="flex items-center gap-2 text-sm text-orange-600 dark:text-orange-400 font-semibold">
+                                        <span class="material-symbols-outlined text-base">shopping_cart</span> Heavy
+                                        Cream
+                                    </span>
+                                    <button
+                                        class="text-[10px] bg-orange-600 text-white px-2 py-1 rounded font-bold uppercase">Add
+                                        to List</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="bg-white dark:bg-[#102210] border-t border-[#e7f3e7] dark:border-[#1a3a1a] py-10">
+            <div
+                class="max-w-[1200px] mx-auto px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="size-6 text-primary">
+                        <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <p class="text-sm font-bold">© 2024 My Fridge App</p>
+                </div>
+                <div class="flex gap-6 text-sm text-[#4c9a4c] dark:text-[#a3c2a3] font-medium">
+                    <a class="hover:text-primary" href="#">Privacy Policy</a>
+                    <a class="hover:text-primary" href="#">Terms of Service</a>
+                    <a class="hover:text-primary" href="#">Contact Us</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="./controller.js"></script>
+</body>
+
+</html>

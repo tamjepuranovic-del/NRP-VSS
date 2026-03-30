@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Inventory Dashboard - My Fridge</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#0d1b0d] dark:text-white min-h-screen">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <aside
+            class="w-64 flex-shrink-0 border-r border-[#cfe7cf] dark:border-[#2a4a2a] bg-white dark:bg-[#152a15] hidden md:flex flex-col">
+            <div class="p-6 flex items-center gap-3">
+                <div class="bg-primary rounded-lg p-2 text-white">
+                    <span class="material-symbols-outlined">kitchen</span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold leading-tight">My Fridge</h1>
+                    <p class="text-xs text-primary font-medium uppercase tracking-wider">Freshness Tracker</p>
+                </div>
+            </div>
+            <nav class="flex-1 px-4 space-y-1">
+                <nav class="space-y-1">
+                    <a class="flex items-center gap-3 px-3 py-2 text-primary bg-primary/10 rounded-lg transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        <span class="font-medium">Dashboard</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:text-primary hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors"
+                        href="../fridge_inventory_manager/code.html">
+                        <span class="material-symbols-outlined">kitchen</span>
+                        <span class="font-medium">My Fridge</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:text-primary hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors"
+                        href="../recipe_suggestions/code.html">
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                        <span class="font-medium">Recipes</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:text-primary hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors"
+                        href="../shopping_list/code.html">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span class="font-medium">Shopping List</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-500 hover:text-primary hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors"
+                        href="../user_profile_&_preferences/code.html">
+                        <span class="material-symbols-outlined">settings</span>
+                        <span class="font-medium">Settings</span>
+                    </a>
+                </nav>
+            </nav>
+            <div class="p-4">
+                <div class="bg-primary/5 dark:bg-primary/10 rounded-xl p-4 border border-primary/20">
+                    <p class="text-xs font-bold text-primary mb-1 uppercase">Pro Plan</p>
+                    <p class="text-sm font-medium mb-3">Get advanced expiration alerts &amp; AI recipes.</p>
+                    <button class="w-full bg-primary text-white text-xs font-bold py-2 rounded-lg shadow-sm">Upgrade
+                        Now</button>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-y-auto bg-background-light dark:bg-background-dark">
+            <!-- Top Navigation Bar -->
+            <header
+                class="sticky top-0 z-10 flex items-center justify-between border-b border-[#cfe7cf] dark:border-[#2a4a2a] bg-white/80 dark:bg-[#102210]/80 backdrop-blur-md px-8 py-4">
+                <div class="flex items-center gap-2">
+                    <h2 class="text-xl font-bold tracking-tight">Dashboard Overview</h2>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="relative hidden lg:block">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                        <input
+                            class="pl-10 pr-4 py-2 bg-gray-100 dark:bg-white/5 border-none rounded-lg text-sm w-64 focus:ring-2 focus:ring-primary/50"
+                            placeholder="Search inventory..." type="text" />
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button
+                            class="p-2 text-slate-500 hover:bg-gray-100 dark:hover:bg-white/5 rounded-full relative">
+                            <span class="material-symbols-outlined">notifications</span>
+                            <span
+                                class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-[#102210]"></span>
+                        </button>
+                        <div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-700 mx-1"></div>
+                        <div class="flex items-center gap-3">
+                            <div class="text-right hidden sm:block">
+                                <p class="text-sm font-bold">Alex Johnson</p>
+                                <p class="text-[10px] text-slate-500 uppercase font-medium">Household Admin</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-center bg-cover border-2 border-primary/20"
+                                data-alt="User profile avatar smiling"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfzyagNwFFDbhEIGS1kuGbRe6yWn3bc5C2bQasL2MTu_giFeZWLvKIRLCYUYilbQKEfRGmhOHQiHE2TYAeADdD7ngXQpUN-DHdL1wWsOAE2IM8rPwMubgjNhslNyufHRX9h04T-fudew5ZH8gAEL4V0rYkHLPocDR1lDZlq5fAuPNs-7foH6t-DPNHURQ-iRTkbyQedpa4h3Y082Z-4jWltbe2jUOE3edio0mnRrCrfb23NZMp3ghz9--RwwPx9sEpYas1sj84Wcw");'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="p-8 space-y-8 max-w-7xl mx-auto w-full">
+                <!-- Hero Action Panel -->
+                <section>
+                    <div class="relative overflow-hidden rounded-2xl bg-[#0d1b0d] p-8 text-white shadow-xl">
+                        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                            <div class="max-w-xl">
+                                <h3 class="text-2xl font-bold mb-2">Ready to update your inventory?</h3>
+                                <p class="text-slate-300 leading-relaxed">Keep your fridge accurate by scanning your
+                                    latest grocery receipt or fridge interior. Our AI identifies items and sets
+                                    estimated expiration dates automatically.</p>
+                            </div>
+                            <a href="../visual_fridge_scanner/code.html"
+                                class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-[#0d1b0d] font-bold rounded-xl hover:scale-105 transition-transform shrink-0">
+                                <span class="material-symbols-outlined">photo_camera</span>
+                                Scan Fridge
+                            </a>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px] -mr-32 -mt-32 rounded-full">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-32 h-32 bg-primary/10 blur-[60px] -ml-16 -mb-16 rounded-full">
+                        </div>
+                    </div>
+                </section>
+                <!-- Stats Summary -->
+                <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="../fridge_inventory_manager/code.html"
+                        class="block bg-white dark:bg-[#152a15] p-6 rounded-xl border border-[#cfe7cf] dark:border-[#2a4a2a] shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Items</p>
+                            <span class="text-primary bg-primary/10 px-2 py-0.5 rounded text-xs font-bold">+4 new</span>
+                        </div>
+                        <p class="text-3xl font-bold">42</p>
+                        <p class="text-xs text-slate-400 mt-2 italic">12 categories across 2 units</p>
+                    </a>
+                    <a href="../fridge_inventory_manager/code.html"
+                        class="block bg-white dark:bg-[#152a15] p-6 rounded-xl border border-[#cfe7cf] dark:border-[#2a4a2a] shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Items Expiring</p>
+                            <span
+                                class="text-red-500 bg-red-100 dark:bg-red-900/30 px-2 py-0.5 rounded text-xs font-bold">Action
+                                Needed</span>
+                        </div>
+                        <p class="text-3xl font-bold text-red-500">5</p>
+                        <p class="text-xs text-slate-400 mt-2 italic">Expires within next 48 hours</p>
+                    </a>
+                    <a href="../recipe_suggestions/code.html"
+                        class="block bg-white dark:bg-[#152a15] p-6 rounded-xl border border-[#cfe7cf] dark:border-[#2a4a2a] shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Recipes Ready</p>
+                            <span
+                                class="text-blue-500 bg-blue-100 dark:bg-blue-900/30 px-2 py-0.5 rounded text-xs font-bold">High
+                                Match</span>
+                        </div>
+                        <p class="text-3xl font-bold text-blue-500">12</p>
+                        <p class="text-xs text-slate-400 mt-2 italic">Based on current stock</p>
+                    </a>
+                </section>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Expiring Soon Section -->
+                    <div class="lg:col-span-1 space-y-4">
+                        <a class="text-sm font-medium hover:text-primary transition-colors"
+                            href="../recipe_suggestions/code.html">Recipes</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors"
+                            href="../shopping_list/code.html">Shopping List</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors"
+                            href="../user_profile_&_preferences/code.html">Settings</a>
+                        <div class="space-y-3">
+                            <div
+                                class="flex items-center gap-4 bg-white dark:bg-[#152a15] p-4 rounded-xl border border-red-100 dark:border-red-900/20">
+                                <div class="w-12 h-12 rounded-lg bg-center bg-cover shrink-0"
+                                    data-alt="Fresh milk carton"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKxaaIUS7_J-YSWY86XYoVnOrlqgiZZ0-vUWcVsbj4y-geowkgz-BdIPLTEAiOU_Uay9l5dK1chxLFY8qRiqZE2e5ZrMBs36rNOlPPNkwh43n6510vLP2f4mpPQNmpaI8FhbqlfHm6CjMbBasZNBHuMLPu73Rv7eHSliH4Hr-zZSeB3Y-sdSeSdKZ77tETukYN-xaa417QoVs5wpzCSfRhCCVzfhqYZUQ2w7eG8PXNmHiD3o4q1f_ddTAoXt2aZVsUN2XnaHfu_7Y");'>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold">Whole Milk</h4>
+                                    <p class="text-xs text-red-500 font-medium">Expires Tomorrow</p>
+                                </div>
+                                <button
+                                    class="p-2 bg-gray-50 dark:bg-white/5 rounded-lg text-slate-400 hover:text-red-500">
+                                    <span class="material-symbols-outlined text-xl">delete</span>
+                                </button>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 bg-white dark:bg-[#152a15] p-4 rounded-xl border border-orange-100 dark:border-orange-900/20">
+                                <div class="w-12 h-12 rounded-lg bg-center bg-cover shrink-0"
+                                    data-alt="Bunch of fresh spinach"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDoTlyme4kZJ7r95_2yYxrzsJwBzIQ5qOe4bBvdNmJ3FuvjkYIewVElaROZMChq-GXkYCQ4-DffkldZHp2_VzSab9XbzVd1hqBb8vQ6n7tJ7DssH5JaS1HhBMsFNZ92k3mgZv3hJJ21kWJwUoYhiini9gkHeaQoRXFdxpGj572-IUKzcv2GVPiZhundS597JDraOY7YZW9IGoOSXWD3tGMMXY30rMkAuw1j0IrCdVWFC2p-AnGs3rYkVaPwq_T9g-jNaKUNKNLb4kI");'>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold">Baby Spinach</h4>
+                                    <p class="text-xs text-orange-500 font-medium">2 days left</p>
+                                </div>
+                                <button
+                                    class="p-2 bg-gray-50 dark:bg-white/5 rounded-lg text-slate-400 hover:text-red-500">
+                                    <span class="material-symbols-outlined text-xl">delete</span>
+                                </button>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 bg-white dark:bg-[#152a15] p-4 rounded-xl border border-orange-100 dark:border-orange-900/20">
+                                <div class="w-12 h-12 rounded-lg bg-center bg-cover shrink-0"
+                                    data-alt="Fresh greek yogurt tub"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAV47QfVlm0Efps-31bSLZlZkh3AJh1viyqE38hTWQx_VTxldDgaK-4dyONWZQ5KO1ukkes7MInZkPxoKfhYY0P1W41629UX6CFfYomjYYEBWom1egoyUSEsIyguWSjn_-_SBzjsLqinelVcHrKehLxkuyDz0hc9vGiHSkVFVaC2vbV-1bwyVzOKDGahzIubOZ8yxte-Se3MxzEgMa_uMWXnNboLnTLelq2IZjd0SEHJ6c5wwfJe-oKYTdxZnUEI2d63hwBMNganfo");'>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold">Greek Yogurt</h4>
+                                    <p class="text-xs text-orange-500 font-medium">3 days left</p>
+                                </div>
+                                <button
+                                    class="p-2 bg-gray-50 dark:bg-white/5 rounded-lg text-slate-400 hover:text-red-500">
+                                    <span class="material-symbols-outlined text-xl">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Top Recipe Picks -->
+                    <div class="lg:col-span-2 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold">Top Recipe Picks</h3>
+                            <a href="../recipe_suggestions/code.html"
+                                class="text-sm text-primary font-bold hover:underline">See All</a>
+                            <div class="flex gap-2">
+                                <button
+                                    class="p-1 border border-slate-200 dark:border-slate-700 rounded text-slate-400"><span
+                                        class="material-symbols-outlined">chevron_left</span></button>
+                                <button
+                                    class="p-1 border border-slate-200 dark:border-slate-700 rounded text-slate-600 dark:text-slate-300"><span
+                                        class="material-symbols-outlined">chevron_right</span></button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div
+                                class="group bg-white dark:bg-[#152a15] rounded-xl overflow-hidden border border-[#cfe7cf] dark:border-[#2a4a2a] shadow-sm hover:shadow-md transition-shadow">
+                                <div class="relative h-40 bg-center bg-cover" data-alt="Bowl of creamy spinach pasta"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDiDz3QJiXCCRVe42Y5gEJizzGXPwwevMQ1HIxFbj_5AWaUiYRMYZfOnJlt1HgbVbQVAPmVfLv0b5_YP99muRgbodHkrYvrT8yMK6i3fpgJWIm5C8gLSDJ8fvERlqAzYT7VO2I2i1XbWnJNt43GdPGnQYs9VYzFyLHLLWrOo2r1RzOEPSBJ1csWhdlRh0Ym6C5w0S07FXL5rg7ZpjiFvSPGBR1p6pyBT4mb6zDqnzjaAKZwws3Xz682OSPUdD_hq3S4EV3SxZ1N2Zg");'>
+                                    <div
+                                        class="absolute top-3 left-3 bg-primary text-[#0d1b0d] px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">
+                                        90% Match</div>
+                                    <button
+                                        class="absolute top-3 right-3 p-1.5 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                                <div class="p-4">
+                                    <h4 class="font-bold mb-1 group-hover:text-primary transition-colors">Creamy Spinach
+                                        Pasta</h4>
+                                    <div
+                                        class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+                                        <span class="flex items-center gap-1"><span
+                                                class="material-symbols-outlined text-base">schedule</span> 20
+                                            min</span>
+                                        <span class="flex items-center gap-1"><span
+                                                class="material-symbols-outlined text-base">signal_cellular_alt</span>
+                                            Easy</span>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1 mb-4">
+                                        <span
+                                            class="px-2 py-0.5 bg-green-50 dark:bg-green-900/20 text-green-600 text-[10px] font-medium rounded">Uses
+                                            Spinach</span>
+                                        <span
+                                            class="px-2 py-0.5 bg-green-50 dark:bg-green-900/20 text-green-600 text-[10px] font-medium rounded">Uses
+                                            Milk</span>
+                                    </div>
+                                    <a href="../recipe_suggestions/code.html"
+                                        class="block w-full text-center border border-primary text-primary hover:bg-primary hover:text-white transition-colors py-2 rounded-lg text-sm font-bold">View
+                                        Recipe</a>
+                                </div>
+                            </div>
+                            <div
+                                class="group bg-white dark:bg-[#152a15] rounded-xl overflow-hidden border border-[#cfe7cf] dark:border-[#2a4a2a] shadow-sm hover:shadow-md transition-shadow">
+                                <div class="relative h-40 bg-center bg-cover"
+                                    data-alt="Healthy berry and yogurt parfait"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKWPXo8Qfb1rUYLWZ8m8oCBkpmJFIdLwpUehskP-cWfcMwmPB4_0wLtIeOtSF1MPoFFr3p4RNsb0YIMwjbz8xcdFuEveZvRYyDqlEpKXT28nKBz_q9nsNyyBmTI_kXVZTQ6HQXkwc7nbHJfno_0-HfH_1eHpLL7Wfi6x49tp_R_pqzbUMaMCZmRV87wmiajE8Fqw66Ln5dnQ7FXfjjVxC8n25yGi7KTgbI3jT8o212hCE7sC-QSXR0K-3QzrNGzUoD1ynlDbCg458");'>
+                                    <div
+                                        class="absolute top-3 left-3 bg-primary text-[#0d1b0d] px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">
+                                        75% Match</div>
+                                    <button
+                                        class="absolute top-3 right-3 p-1.5 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                                <div class="p-4">
+                                    <h4 class="font-bold mb-1 group-hover:text-primary transition-colors">Berry Yogurt
+                                        Parfait</h4>
+                                    <div
+                                        class="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+                                        <span class="flex items-center gap-1"><span
+                                                class="material-symbols-outlined text-base">schedule</span> 10
+                                            min</span>
+                                        <span class="flex items-center gap-1"><span
+                                                class="material-symbols-outlined text-base">signal_cellular_alt</span>
+                                            Beginner</span>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1 mb-4">
+                                        <span
+                                            class="px-2 py-0.5 bg-green-50 dark:bg-green-900/20 text-green-600 text-[10px] font-medium rounded">Uses
+                                            Yogurt</span>
+                                        <span
+                                            class="px-2 py-0.5 bg-gray-50 dark:bg-white/5 text-slate-400 text-[10px] font-medium rounded">Need
+                                            Berries</span>
+                                    </div>
+                                    <a href="../recipe_suggestions/code.html"
+                                        class="block w-full text-center border border-primary text-primary hover:bg-primary hover:text-white transition-colors py-2 rounded-lg text-sm font-bold">View
+                                        Recipe</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer/Bottom Disclaimer -->
+                <footer
+                    class="pt-8 border-t border-[#cfe7cf] dark:border-[#2a4a2a] text-center text-slate-400 text-xs pb-12">
+                    <p>© 2024 My Fridge App. Smart inventory management for a zero-waste lifestyle.</p>
+                </footer>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="./controller.js"></script>
+</body>
+
+</html>

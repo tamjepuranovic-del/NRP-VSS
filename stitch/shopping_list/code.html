@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Shopping List - My Fridge</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#0d1b0d] dark:text-white min-h-screen">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Top Navigation Bar -->
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 bg-background-light dark:bg-background-dark px-10 py-3 sticky top-0 z-50">
+                <div class="flex items-center gap-4 text-[#0d1b0d] dark:text-white">
+                    <div class="size-6 text-primary">
+                        <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] font-display">My Fridge</h2>
+                </div>
+                <div class="flex flex-1 justify-end gap-8 items-center">
+                    <nav class="flex items-center gap-9">
+                        <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                            href="../inventory_dashboard/code.html">Dashboard</a>
+                        <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                            href="../fridge_inventory_manager/code.html">Inventory</a>
+                        <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                            href="../recipe_suggestions/code.html">Recipes</a>
+                        <a class="text-sm font-bold leading-normal text-primary" href="#">Shopping List</a>
+                        <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                            href="../user_profile_&_preferences/code.html">Settings</a>
+                    </nav>
+                    <a href="../user_profile_&_preferences/code.html"
+                        class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary/10 text-[#0d1b0d] dark:text-white px-2.5 hover:bg-primary/20 transition-colors">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="flex flex-1 justify-center py-8">
+                <div class="layout-content-container flex flex-col max-w-[1000px] w-full px-4 sm:px-10 gap-6">
+
+                    <!-- Header -->
+                    <div
+                        class="flex flex-wrap justify-between items-end gap-4 p-4 bg-white dark:bg-[#1a2e1a] rounded-xl shadow-sm border border-primary/10">
+                        <div class="flex min-w-72 flex-col gap-1">
+                            <h1
+                                class="text-4xl font-black leading-tight tracking-[-0.033em] text-[#0d1b0d] dark:text-white font-display">
+                                Shopping List</h1>
+                            <p class="text-[#4c9a4c] dark:text-primary/70 text-base font-normal">Items you need to buy
+                                on your next grocery run.</p>
+                        </div>
+                        <button id="add-item-btn"
+                            class="flex min-w-[140px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-12 px-5 bg-primary text-[#0d1b0d] text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                            <span class="truncate">Add Item</span>
+                        </button>
+                    </div>
+
+                    <!-- List Container -->
+                    <div
+                        class="bg-white dark:bg-[#1a2e1a] rounded-xl border border-primary/20 shadow-sm overflow-hidden p-0 min-h-[300px]">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-primary/5 border-b border-primary/20">
+                                    <th
+                                        class="px-6 py-4 text-sm font-bold text-[#4c9a4c] uppercase tracking-wider w-16">
+                                        Done</th>
+                                    <th class="px-6 py-4 text-sm font-bold text-[#4c9a4c] uppercase tracking-wider">Item
+                                    </th>
+                                    <th class="px-6 py-4 text-sm font-bold text-[#4c9a4c] uppercase tracking-wider">
+                                        Category</th>
+                                    <th
+                                        class="px-6 py-4 text-sm font-bold text-[#4c9a4c] uppercase tracking-wider text-right">
+                                        Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="shopping-list-body" class="divide-y divide-primary/10">
+                                <!-- Items will be injected here -->
+                            </tbody>
+                        </table>
+
+                        <!-- Empty State (Hidden by default) -->
+                        <div id="empty-state" class="hidden flex-col items-center justify-center py-16 text-center">
+                            <span
+                                class="material-symbols-outlined text-6xl text-primary/20 mb-4">shopping_cart_off</span>
+                            <h3 class="text-xl font-bold text-[#0d1b0d] dark:text-white">Your list is empty</h3>
+                            <p class="text-[#4c9a4c] mt-2">Add items you need to buy or sync from recipes.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer
+                class="mt-auto px-10 py-6 border-t border-primary/10 flex flex-col md:flex-row items-center justify-between gap-4 bg-white dark:bg-[#0a150a]">
+                <div class="flex items-center gap-2">
+                    <div class="size-4 text-primary">
+                        <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-medium text-[#4c9a4c]">© 2024 My Fridge</span>
+                </div>
+                <div class="flex gap-6 text-xs text-[#4c9a4c]">
+                    <a class="hover:underline" href="#">Privacy Policy</a>
+                    <a class="hover:underline" href="#">Terms of Service</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script type="module" src="./controller.js"></script>
+</body>
+
+</html>

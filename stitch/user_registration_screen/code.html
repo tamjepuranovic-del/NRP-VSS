@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>My Fridge - Register</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13ec13",
+            "background-light": "#f6f8f6",
+            "background-dark": "#102210",
+          },
+          fontFamily: {
+            "display": ["Work Sans", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Work Sans', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark min-h-screen transition-colors duration-300">
+  <!-- Navbar Component -->
+  <header
+    class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/10 dark:border-white/10 px-6 md:px-10 py-3 bg-white dark:bg-[#1a2e1a]">
+    <div class="flex items-center gap-3 text-[#0d1b0d] dark:text-white">
+      <div class="size-8 text-primary">
+        <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1">kitchen</span>
+      </div>
+      <h2 class="text-[#0d1b0d] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] font-display">My
+        Fridge</h2>
+    </div>
+    <div class="flex gap-4">
+      <button
+        class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-[#0d1b0d] text-sm font-bold leading-normal transition-all hover:opacity-90 active:scale-95">
+        <span class="truncate">Login</span>
+      </button>
+    </div>
+  </header>
+  <main class="flex flex-1 flex-col items-center justify-center px-4 py-12 md:py-20">
+    <div class="layout-content-container flex flex-col max-w-[480px] w-full flex-1">
+      <!-- Headline Section -->
+      <div class="flex flex-col items-center mb-8">
+        <div class="w-20 h-20 mb-4 bg-primary/20 dark:bg-primary/10 rounded-full flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-5xl">person_add</span>
+        </div>
+        <h1
+          class="text-[#0d1b0d] dark:text-white tracking-light text-[32px] font-bold leading-tight text-center pb-2 font-display">
+          Join My Fridge</h1>
+        <p class="text-[#4c6a4c] dark:text-gray-400 text-base font-normal leading-normal text-center">Start managing
+          your kitchen smarter today.</p>
+      </div>
+      <!-- Registration Form Card -->
+      <div class="bg-white dark:bg-[#1a2e1a] p-8 rounded-xl shadow-sm border border-primary/5 dark:border-white/5">
+        <form class="flex flex-col gap-4">
+          <!-- Full Name Field -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[#0d1b0d] dark:text-white text-sm font-semibold leading-normal">Full Name</label>
+            <div class="relative">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#4c9a4c] text-xl">person</span>
+              <input
+                class="form-input flex w-full rounded-lg text-[#0d1b0d] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#122212] focus:border-primary h-12 pl-10 pr-4 placeholder:text-gray-400 text-sm font-normal"
+                placeholder="John Doe" type="text" />
+            </div>
+          </div>
+          <!-- Email Field -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[#0d1b0d] dark:text-white text-sm font-semibold leading-normal">Email Address</label>
+            <div class="relative">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#4c9a4c] text-xl">mail</span>
+              <input
+                class="form-input flex w-full rounded-lg text-[#0d1b0d] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#122212] focus:border-primary h-12 pl-10 pr-4 placeholder:text-gray-400 text-sm font-normal"
+                placeholder="email@example.com" type="email" />
+            </div>
+          </div>
+          <!-- Password Field -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[#0d1b0d] dark:text-white text-sm font-semibold leading-normal">Password</label>
+            <div class="relative">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#4c9a4c] text-xl">lock</span>
+              <input
+                class="form-input flex w-full rounded-lg text-[#0d1b0d] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#122212] focus:border-primary h-12 pl-10 pr-4 placeholder:text-gray-400 text-sm font-normal"
+                placeholder="••••••••" type="password" />
+            </div>
+            <p class="text-[10px] text-gray-500 dark:text-gray-400 italic">Must be at least 8 characters long.</p>
+          </div>
+          <!-- Confirm Password Field -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[#0d1b0d] dark:text-white text-sm font-semibold leading-normal">Confirm Password</label>
+            <div class="relative">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#4c9a4c] text-xl">verified_user</span>
+              <input
+                class="form-input flex w-full rounded-lg text-[#0d1b0d] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#122212] focus:border-primary h-12 pl-10 pr-4 placeholder:text-gray-400 text-sm font-normal"
+                placeholder="••••••••" type="password" />
+            </div>
+          </div>
+          <div class="flex items-center gap-2 py-2">
+            <input class="rounded border-gray-300 text-primary focus:ring-primary" id="terms" type="checkbox" />
+            <label class="text-xs text-[#4c6a4c] dark:text-gray-400" for="terms">I agree to the <a
+                class="text-primary hover:underline font-medium" href="#">Terms of Service</a> and <a
+                class="text-primary hover:underline font-medium" href="#">Privacy Policy</a></label>
+          </div>
+          <!-- Submit Button -->
+          <button
+            class="flex w-full cursor-pointer items-center justify-center rounded-lg h-12 px-4 bg-primary text-[#0d1b0d] text-base font-bold leading-normal transition-all hover:opacity-90 active:scale-95 shadow-lg shadow-primary/20 mt-2"
+            type="submit">
+            <span class="truncate">Create Account</span>
+          </button>
+        </form>
+        <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800 text-center">
+          <p class="text-[#4c6a4c] dark:text-gray-400 text-sm">
+            Already have an account?
+            <a class="text-primary font-bold hover:underline ml-1" href="../user_login_screen/code.html">Log in here</a>
+          </p>
+        </div>
+      </div>
+      <!-- Visual Decoration (Abstract Fridge Content Pattern) -->
+      <div class="mt-12 flex justify-center gap-8 opacity-40">
+        <span class="material-symbols-outlined text-4xl text-primary">eco</span>
+        <span class="material-symbols-outlined text-4xl text-primary">nutrition</span>
+        <span class="material-symbols-outlined text-4xl text-primary">restaurant</span>
+        <span class="material-symbols-outlined text-4xl text-primary">inventory_2</span>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="px-10 py-8 border-t border-primary/10 dark:border-white/10 text-center">
+    <p class="text-xs text-[#4c6a4c] dark:text-gray-500">© 2024 My Fridge App. Freshness at your fingertips.</p>
+  </footer>
+  <script type="module" src="./controller.js"></script>
+</body>
+
+</html>
